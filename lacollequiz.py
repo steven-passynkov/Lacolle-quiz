@@ -297,6 +297,10 @@ if left == 0:
     smtpObj = smtplib.SMTP('localhost')
     smtpObj.sendmail(sender, receivers, message)         
   except SMTPException:
-    print "Error: unable to send email"
+    print("Error: unable to send email".top(columns))
     lacolleResponse("Error: unable to send email")
+    print("Get Steven to help and retrieve your score".center(columns))
+    lacolleResponse("Get Steven to help and retrieve your score")
+    print("I am going to lock get help".bottom(columns))
+    lacolleResponse("I am going to lock get help")
     pa = 0
