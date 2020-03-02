@@ -249,8 +249,10 @@ def quiz10():
     SRW()
 if pa == 1:
   b_one = Button(center, text= "Quiz", command = lacolleResponse("Tu a 10 seconde pour dire ton reponse")
-print("Tu a 10 seconde pour dire ton reponse".center(columns)) and
-os.system('clear') and quiz1())
+    print("Tu a 10 seconde pour dire ton reponse".center(columns)) and
+    os.system('clear') and quiz1())
+else:
+    password()
 
 if left == 10 or x == 0:
   b_two = Button(center, text= "Question 1", command = os.system('clear') and quiz1())
