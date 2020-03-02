@@ -19,10 +19,24 @@ seconds = 10
 quiz_one = ""
 quiz_two = ""
 quiz_three = ""
+quiz_four = ""
+quiz_five = ""
+quiz_six = ""
+quiz_seven = ""
+quiz_eight = ""
+quiz nine = ""
+quiz_ten = ""
 
 quiz_oneA = ""
 quiz_twoA = ""
 quiz_threeA = ""
+quiz_fourA = ""
+quiz_fiveA = ""
+quiz_sixA = ""
+quiz_sevenA = ""
+quiz_eightA = ""
+quiz nineA = ""
+quiz_tenA = ""
 
 r = sr.Recognizer()
 with sr.Microphone() as source:               
@@ -114,17 +128,160 @@ def quiz3():
     wrong+1
     left-1
     SRW()
+    
+def quiz4():
+  contdown_timer(x)
+  lacolleResponse(quiz_four)
+  time.sleep(5) 
+  if quiz_fourA in command:
+    lacolleResponse("Correcet")
+    os.system('clear')
+    right+1
+    left-1
+    SRW()
+  else:
+    lacolleResponse("Wong, the answer is "+ quiz_fourA)
+    os.system('clear')
+    wrong+1
+    left-1
+    SRW()
 
+def quiz5():
+  contdown_timer(x)
+  lacolleResponse(quiz_five)
+  time.sleep(5) 
+  if quiz_fiveA in command:
+    lacolleResponse("Correcet")
+    os.system('clear')
+    right+1
+    left-1
+    SRW()
+  else:
+    lacolleResponse("Wong, the answer is "+ quiz_fiveA)
+    os.system('clear')
+    wrong+1
+    left-1
+    SRW()
+    
+def quiz6():
+  contdown_timer(x)
+  lacolleResponse(quiz_six)
+  time.sleep(5) 
+  if quiz_sixA in command:
+    lacolleResponse("Correcet")
+    os.system('clear')
+    right+1
+    left-1
+    SRW()
+  else:
+    lacolleResponse("Wong, the answer is "+ quiz_sixA)
+    os.system('clear')
+    wrong+1
+    left-1
+    SRW()
+
+def quiz7():
+  contdown_timer(x)
+  lacolleResponse(quiz_seven)
+  time.sleep(5) 
+  if quiz_sevenA in command:
+    lacolleResponse("Correcet")
+    os.system('clear')
+    right+1
+    left-1
+    SRW()
+  else:
+    lacolleResponse("Wong, the answer is "+ quiz_sevenA)
+    os.system('clear')
+    wrong+1
+    left-1
+    SRW()
+    
+def quiz8():
+  contdown_timer(x)
+  lacolleResponse(quiz_eight)
+  time.sleep(5) 
+  if quiz_eightA in command:
+    lacolleResponse("Correcet")
+    os.system('clear')
+    right+1
+    left-1
+    SRW()
+  else:
+    lacolleResponse("Wong, the answer is "+ quiz_eightA)
+    os.system('clear')
+    wrong+1
+    left-1
+    SRW()
+    
+ def quiz9():
+  contdown_timer(x)
+  lacolleResponse(quiz_nine)
+  time.sleep(5) 
+  if quiz_nineA in command:
+    lacolleResponse("Correcet")
+    os.system('clear')
+    right+1
+    left-1
+    SRW()
+  else:
+    lacolleResponse("Wong, the answer is "+ quiz_nineA)
+    os.system('clear')
+    wrong+1
+    left-1
+    SRW()
+    
+def quiz10():
+  contdown_timer(x)
+  lacolleResponse(quiz_ten)
+  time.sleep(5) 
+  if quiz_tenA in command:
+    lacolleResponse("Correcet")
+    os.system('clear')
+    right+1
+    left-1
+    SRW()
+  else:
+    lacolleResponse("Wong, the answer is "+ quiz_tenA)
+    os.system('clear')
+    wrong+1
+    left-1
+    SRW()
 if pa == 1:
   b_one = Button(center, text= "Quiz", command = lacolleResponse("Tu a 10 seconde pour dire ton reponse")
 print("Tu a 10 seconde pour dire ton reponse".center(columns)) and
 os.system('clear') and quiz1())
 
-if left == 2 or x == 0:
+if left == 10 or x == 0:
+  b_two = Button(center, text= "Question 1", command = os.system('clear') and quiz1())
+
+if left == 9 or x == 0:
   b_two = Button(center, text= "Question 2", command = os.system('clear') and quiz2())
  
-if left == 1 or x == 0:
+if left == 8 or x == 0:
   b_three = Button(center, text= "Question 3", command =  os.system('clear') and quiz3())
+
+if left == 7 or x == 0:
+  b_three = Button(center, text= "Question 4", command =  os.system('clear') and quiz4())
+
+if left == 6 or x == 0:
+  b_three = Button(center, text= "Question 5", command =  os.system('clear') and quiz5())
+
+if left == 5 or x == 0:
+  b_three = Button(center, text= "Question 6", command =  os.system('clear') and quiz6())
+
+if left == 4 or x == 0:
+  b_three = Button(center, text= "Question 7", command =  os.system('clear') and quiz7())
+
+if left == 3 or x == 0:
+  b_three = Button(center, text= "Question 8", command =  os.system('clear') and quiz8())
+
+if left == 2 or x == 0:
+  b_three = Button(center, text= "Question 9", command =  os.system('clear') and quiz9())
+
+if left == 1 or x == 0:
+  b_three = Button(center, text= "Question 10", command =  os.system('clear') and quiz10())
+
 
 if left == 0:
   SRW()
