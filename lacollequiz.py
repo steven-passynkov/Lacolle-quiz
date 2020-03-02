@@ -6,6 +6,7 @@ import shutil
 import getpass 
 import datetime
 import smtplib
+from selenium import webdriver
 columns = shutil.get_terminal_size().columns
 
 score = 0
@@ -291,11 +292,11 @@ if left == 0:
   receivers = ['passynkovsteven@gmail.com']
 
   message = SRW()
-  password()
+  driver.refresh()
   try:
     smtpObj = smtplib.SMTP('localhost')
     smtpObj.sendmail(sender, receivers, message)         
   except SMTPException:
     print "Error: unable to send email"
     lacolleResponse("Error: unable to send email")
-    pa = 1
+    pa = 0
