@@ -291,10 +291,11 @@ if left == 0:
   receivers = ['passynkovsteven@gmail.com']
 
   message = SRW()
-
+  password()
   try:
     smtpObj = smtplib.SMTP('localhost')
     smtpObj.sendmail(sender, receivers, message)         
   except SMTPException:
     print "Error: unable to send email"
     lacolleResponse("Error: unable to send email")
+    pa = 1
