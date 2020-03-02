@@ -290,12 +290,16 @@ if left == 0:
   SRW()
   sender = 'passynkovsteven@gmail.com'
   receivers = ['passynkovsteven@gmail.com']
+  name = raw_input("Enter your real name or be disqualified: ".center(columns))
+  os.system('clear')
 
-  message = SRW()
+  message = SRW() and name
   driver.refresh()
   try:
     smtpObj = smtplib.SMTP('localhost')
-    smtpObj.sendmail(sender, receivers, message)         
+    smtpObj.sendmail(sender, receivers, message)
+    time.sleep(10)
+    driver.refresh()
   except SMTPException:
     print("Error: unable to send email".top(columns))
     lacolleResponse("Error: unable to send email")
