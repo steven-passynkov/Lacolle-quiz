@@ -62,9 +62,7 @@ def countdown_timer(x):
         score + 2
     if x == 2 or x == 1:
         score + 1
-
-lacolleResponse("Tu a 10 seconde pour dire ton reponse")
-print("Tu a 10 seconde pour dire ton reponse".center(columns))
+password()
 
 def quiz1():
   lacolleResponse(quiz_one)
@@ -118,11 +116,13 @@ def quiz3():
     SRW()
 
 if pa == 1:
-  b_one = Button(center, text= "Quiz", command = os.system('clear') and quiz1())
+  b_one = Button(center, text= "Quiz", command = lacolleResponse("Tu a 10 seconde pour dire ton reponse")
+print("Tu a 10 seconde pour dire ton reponse".center(columns)) and
+os.system('clear') and quiz1())
 
 if left == 2 or x == 0:
   b_two = Button(center, text= "Question 2", command = os.system('clear') and quiz2())
-
+ 
 if left == 1 or x == 0:
   b_three = Button(center, text= "Question 3", command =  os.system('clear') and quiz3())
 
