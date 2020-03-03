@@ -1,5 +1,5 @@
 import speech_recognition as sr
-import os
+from os import system
 import time
 from Tkinter import *
 import shutil
@@ -7,6 +7,7 @@ import getpass
 import datetime
 import smtplib
 from selenium import webdriver
+from sys import platform
 columns = shutil.get_terminal_size().columns
 
 score = 0
@@ -25,7 +26,7 @@ quiz_five = ""
 quiz_six = ""
 quiz_seven = ""
 quiz_eight = ""
-quiz nine = ""
+quiz_nine = ""
 quiz_ten = ""
 
 quiz_oneA = ""
@@ -36,7 +37,7 @@ quiz_fiveA = ""
 quiz_sixA = ""
 quiz_sevenA = ""
 quiz_eightA = ""
-quiz nineA = ""
+quiz_nineA = ""
 quiz_tenA = ""
 
 r = sr.Recognizer()
@@ -44,10 +45,17 @@ with sr.Microphone() as source:
     audio = r.listen(source)   
 command = r.recognize_google(audio).lower()
 
+def screen_clear():
+   if platform == "linux":
+      os.system('cls')
+   # for mac and linux(here, os.name is 'posix')
+   else:
+      os.system('clear')
+
 def lacolleResponse(audio):
   print(audio)
   for line in audio.splitlines():
-      os.system(audio)
+      os,system(audio)
 
 def SRW():
   lacolleResponse("You'r score is " + score + ". The amount of question answered right is "+ right + ". The amount of question answered wrong is "+ wrong + ". You have " "more question's left")
@@ -84,13 +92,13 @@ def quiz1():
   contdown_timer(x)
   if quiz_oneA in command:
     lacolleResponse("Correcet")
-    os.system('clear')
+    screen_clear()
     right+1
     left-1
     SRW()
   else:
     lacolleResponse("Wong, the answer is " + quiz_oneA)
-    os.system('clear')
+    screen_clear()
     wrong+1
     left-1
     SRW()
@@ -101,13 +109,13 @@ def quiz2():
   time.sleep(5) 
   if quiz_twoA in command:
     lacolleResponse("Correcet")
-    os.system('clear')
+    screen_clear()
     right+1
     left-1
     SRW()
   else:
     lacolleResponse("Wong, the answer is "+ quiz_twoA)
-    os.system('clear')
+    screen_clear()
     wrong+1
     left-1
     SRW()
@@ -118,14 +126,14 @@ def quiz3():
   if quiz_threeA in command:
     lacolleResponse("Correcet")
     print("Tu a 5 seconde pour dire ton reponse".center(columns))
-    os.system('clear')
+    screen_clear()
     right+1
     left-1
     SRW()
   else:
     lacolleResponse("Wong, the answer is "+ quiz_threeA)
     print("Tu a 5 seconde pour dire ton reponse".center(columns))
-    os.system('clear')
+    screen_clear()
     wrong+1
     left-1
     SRW()
@@ -136,13 +144,13 @@ def quiz4():
   time.sleep(5) 
   if quiz_fourA in command:
     lacolleResponse("Correcet")
-    os.system('clear')
+    screen_clear()
     right+1
     left-1
     SRW()
   else:
     lacolleResponse("Wong, the answer is "+ quiz_fourA)
-    os.system('clear')
+    screen_clear()
     wrong+1
     left-1
     SRW()
@@ -153,13 +161,13 @@ def quiz5():
   time.sleep(5) 
   if quiz_fiveA in command:
     lacolleResponse("Correcet")
-    os.system('clear')
+    screen_clear()
     right+1
     left-1
     SRW()
   else:
     lacolleResponse("Wong, the answer is "+ quiz_fiveA)
-    os.system('clear')
+    screen_clear()
     wrong+1
     left-1
     SRW()
@@ -170,13 +178,13 @@ def quiz6():
   time.sleep(5) 
   if quiz_sixA in command:
     lacolleResponse("Correcet")
-    os.system('clear')
+    screen_clear()
     right+1
     left-1
     SRW()
   else:
     lacolleResponse("Wong, the answer is "+ quiz_sixA)
-    os.system('clear')
+    screen_clear()
     wrong+1
     left-1
     SRW()
@@ -187,13 +195,13 @@ def quiz7():
   time.sleep(5) 
   if quiz_sevenA in command:
     lacolleResponse("Correcet")
-    os.system('clear')
+    screen_clear()
     right+1
     left-1
     SRW()
   else:
     lacolleResponse("Wong, the answer is "+ quiz_sevenA)
-    os.system('clear')
+    screen_clear()
     wrong+1
     left-1
     SRW()
@@ -204,30 +212,30 @@ def quiz8():
   time.sleep(5) 
   if quiz_eightA in command:
     lacolleResponse("Correcet")
-    os.system('clear')
+    screen_clear()
     right+1
     left-1
     SRW()
   else:
     lacolleResponse("Wong, the answer is "+ quiz_eightA)
-    os.system('clear')
+    screen_clear()
     wrong+1
     left-1
     SRW()
     
- def quiz9():
+def quiz9():
   contdown_timer(x)
   lacolleResponse(quiz_nine)
   time.sleep(5) 
   if quiz_nineA in command:
     lacolleResponse("Correcet")
-    os.system('clear')
+    screen_clear()
     right+1
     left-1
     SRW()
   else:
     lacolleResponse("Wong, the answer is "+ quiz_nineA)
-    os.system('clear')
+    screen_clear()
     wrong+1
     left-1
     SRW()
@@ -238,60 +246,54 @@ def quiz10():
   time.sleep(5) 
   if quiz_tenA in command:
     lacolleResponse("Correcet")
-    os.system('clear')
+    screen_clear()
     right+1
     left-1
     SRW()
   else:
     lacolleResponse("Wong, the answer is "+ quiz_tenA)
-    os.system('clear')
+    screen_clear()
     wrong+1
     left-1
     SRW()
 if pa == 1:
-  b_one = Button(center, text= "Quiz", command = lacolleResponse("Tu a 10 seconde pour dire ton reponse")
-    print("Tu a 10 seconde pour dire ton reponse".center(columns)) and
-    os.system('clear') and quiz1())
+  b_one = Button(center, text= "Quiz", command = screen_clear() and quiz1())
 else:
     password()
 
-if left == 10 or x == 0:
-  b_two = Button(center, text= "Question 1", command = os.system('clear') and quiz1())
-
 if left == 9 or x == 0:
-  b_two = Button(center, text= "Question 2", command = os.system('clear') and quiz2())
- 
-if left == 8 or x == 0:
-  b_three = Button(center, text= "Question 3", command =  os.system('clear') and quiz3())
+  b_two = Button(center, text= "Question 2", command = screen_clear() and quiz2())
 
+if left == 8 or x == 0:
+  b_two = Button(center, text= "Question 3", command = screen_clear() and quiz3())
+ 
 if left == 7 or x == 0:
-  b_three = Button(center, text= "Question 4", command =  os.system('clear') and quiz4())
+  b_three = Button(center, text= "Question 4", command =  screen_clear() and quiz4())
 
 if left == 6 or x == 0:
-  b_three = Button(center, text= "Question 5", command =  os.system('clear') and quiz5())
+  b_three = Button(center, text= "Question 5", command = screen_clear() and quiz5())
 
 if left == 5 or x == 0:
-  b_three = Button(center, text= "Question 6", command =  os.system('clear') and quiz6())
+  b_three = Button(center, text= "Question 6", command =  screen_clear() and quiz6())
 
 if left == 4 or x == 0:
-  b_three = Button(center, text= "Question 7", command =  os.system('clear') and quiz7())
+  b_three = Button(center, text= "Question 7", command =  screen_clear() and quiz7())
 
 if left == 3 or x == 0:
-  b_three = Button(center, text= "Question 8", command =  os.system('clear') and quiz8())
+  b_three = Button(center, text= "Question 8", command =  screen_clear() and quiz8())
 
 if left == 2 or x == 0:
-  b_three = Button(center, text= "Question 9", command =  os.system('clear') and quiz9())
+  b_three = Button(center, text= "Question 9", command =  screen_clear() and quiz9())
 
 if left == 1 or x == 0:
-  b_three = Button(center, text= "Question 10", command =  os.system('clear') and quiz10())
-
+  b_three = Button(center, text= "Question 10", command = screen_clear() and quiz10())
 
 if left == 0:
   SRW()
   sender = 'passynkovsteven@gmail.com'
   receivers = ['passynkovsteven@gmail.com']
-  name = raw_input("Enter your real name or be disqualified: ".center(columns))
-  os.system('clear')
+  name = raw_input("Enter your full name or be disqualified: ".center(columns))
+  screen_clear()
 
   message = SRW() and name
   driver.refresh()
@@ -308,3 +310,4 @@ if left == 0:
     print("I am going to lock get help".bottom(columns))
     lacolleResponse("I am going to lock get help")
     pa = 0
+    
